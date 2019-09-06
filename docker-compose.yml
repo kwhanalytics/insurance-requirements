@@ -1,0 +1,26 @@
+version: '3'
+services:
+  insurance_env:
+    # The next line defines the image that will be used to create the container
+    # It refers to an image that is available on Docker Hub and uses the form:
+    # NAMESPACE/REPO_NAME:TAG
+    # Change this line if you want to change the image used for your container. 
+    image: jpalakskwh/develop_envs:latest 
+    ports:
+      - "8888:8888"
+      - "5432:5432"
+    volumes:
+      # Entries take the form of a HOST_PATH:CONTAINER_PATH mapping.
+      # When you create the container you should find the directory that is at 
+      # HOST_PATH on your local machine will be at CONTAINER_PATH in the container.
+      #
+      # For example, say I want to access the directory at /example/path/to/insurance
+      # on my local machine through the container. If I am in the container's shell,
+      # I can cd to /root/insurance and the contents will be available.
+      #
+      # Note that there is no copying. The directory in the container IS the 
+      # directory on your local machine. The path might be different however.
+      - ~/.jupyter:/root/.jupyter
+      - ~/.virtualenvs/repos/insurance:/root/insurance-workspace
+    # Allows for interactive sessions
+    tty: true #
