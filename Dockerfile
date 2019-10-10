@@ -37,14 +37,16 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # Set working directory to 
 WORKDIR /root/
 
-# make directories to store requirements
-RUN mkdir -p buildreqs/marvin
+# Make directories to store requirements
+RUN mkdir -p buildreqs/requirements
 
-#Copy requirement files
+# Copy requirement files
 COPY requirements.txt buildreqs/
 COPY requirements-marvin.txt buildreqs/marvin/requirements.txt
 
 # Install requirements
+# Will also run buildreqs/marvin/requirements.txt since
+# the insurance requirements file will point to marvin file
 RUN pip install -r buildreqs/requirements.txt
 
 # Run bash on startup
