@@ -159,4 +159,4 @@ https://github.com/matplotlib/basemap/archive/master.zip
 
 # Install all submodule requirements
 # Will fail and notify users if library versions in submodule are upgraded
--r marvin/requirements.txt
+-r insurance-requirements/marvin-requirements.txt
