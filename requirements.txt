@@ -37,9 +37,11 @@ entrypoints==0.3
 enum34==1.1.6
 et-xmlfile==1.0.1
 fixture==1.5.2
+flake8==3.5.0
 funcsigs==0.4
 functools32==3.2.3.post2
 futures==3.2.0
+fuzzywuzzy==0.8.0
 GeoAlchemy2==0.4.0
 geopy==1.10.0
 gitdb2==2.0.5
