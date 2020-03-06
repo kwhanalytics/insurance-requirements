@@ -8,8 +8,8 @@ services:
     # To use a local build, run docker build command in the repo with a dockerfile
     # docker build -t mybuild .
     # docker tag mybuild:latest (can add new tags like mybuild:staging)
-    # image: mybuild:latest
-    image: jpalakskwh/develop_envs:latest 
+    # Currently calling it ins_develop, will update to DockerHub once Bitbucket integration works
+    image: ins_develop:latest
     ports:
       - "8888:8888"
       - "5432:5432"
