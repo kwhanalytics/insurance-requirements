@@ -27,6 +27,7 @@ RUN apt-get update && apt-get install -y \
 	python-pip
 
 # Install GEOS packages needed for basemap
+# JD: This layer costs 516MB
 RUN apt-get update && apt-get install -y \
 	libgeos-c1v5 \
 	libgeos-dev
@@ -42,11 +43,13 @@ RUN mkdir -p buildreqs/requirements
 
 # Copy requirement files
 COPY requirements.txt buildreqs/
-COPY requirements-marvin.txt buildreqs/marvin/requirements.txt
+# JD: Change this because its named different
+COPY marvin-requirements.txt buildreqs/marvin-requirements.txt
 
 # Install requirements
 # Will also run buildreqs/marvin/requirements.txt since
 # the insurance requirements file will point to marvin file
+# JD: This layer costs 1.28GB
 RUN pip install -r buildreqs/requirements.txt
 
 # Run bash on startup

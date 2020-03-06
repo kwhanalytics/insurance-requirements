@@ -4,7 +4,11 @@ services:
     # The next line defines the image that will be used to create the container
     # It refers to an image that is available on Docker Hub and uses the form:
     # NAMESPACE/REPO_NAME:TAG
-    # Change this line if you want to change the image used for your container. 
+    # Change this line if you want to change the image used for your container.
+    # To use a local build, run docker build command in the repo with a dockerfile
+    # docker build -t mybuild .
+    # docker tag mybuild:latest (can add new tags like mybuild:staging)
+    # image: mybuild:latest
     image: jpalakskwh/develop_envs:latest 
     ports:
       - "8888:8888"
