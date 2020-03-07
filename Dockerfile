@@ -47,7 +47,7 @@ COPY marvin-requirements.txt buildreqs/marvin-requirements.txt
 # Will also run buildreqs/marvin/requirements.txt since
 # the insurance requirements file will point to marvin file
 # This layer costs 1.28GB - not sure how to fix this issue.
-RUN pip install -r buildreqs/requirements.txt
+RUN pip --no-cache-dir install -r buildreqs/requirements.txt
 
 # Run bash on startup
 CMD ["/bin/bash"]
