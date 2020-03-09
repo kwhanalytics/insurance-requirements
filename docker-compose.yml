@@ -5,11 +5,7 @@ services:
     # It refers to an image that is available on Docker Hub and uses the form:
     # NAMESPACE/REPO_NAME:TAG
     # Change this line if you want to change the image used for your container.
-    # To use a local build, run docker build command in the repo with a dockerfile
-    # docker build -t mybuild .
-    # docker tag mybuild:latest (can add new tags like mybuild:staging)
-    # Currently calling it ins_develop, will update to DockerHub once Bitbucket integration works
-    image: ins_develop:latest
+    image: kwhadocker/insurance-requirements:latest
     ports:
       - "8888:8888"
       - "5432:5432"
