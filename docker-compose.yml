@@ -22,5 +22,6 @@ services:
       # directory on your local machine. The path might be different however.
       - ~/.jupyter:/root/.jupyter
       - ~/.virtualenvs/repos/insurance:/root/insurance-workspace
+      - ~/insurance/:/root/insurance
     # Allows for interactive sessions
     tty: true #
