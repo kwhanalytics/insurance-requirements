@@ -1,27 +1,28 @@
 version: '3'
 services:
   insurance_env:
+    network_mode: host
     # The next line defines the image that will be used to create the container
     # It refers to an image that is available on Docker Hub and uses the form:
     # NAMESPACE/REPO_NAME:TAG
     # Change this line if you want to change the image used for your container.
     image: kwhadocker/insurance-requirements:latest
     ports:
+      # Jupyter default port
       - "8888:8888"
+      # Postgres default port
       - "5432:5432"
     volumes:
-      # Entries take the form of a HOST_PATH:CONTAINER_PATH mapping.
-      # When you create the container you should find the directory that is at 
-      # HOST_PATH on your local machine will be at CONTAINER_PATH in the container.
-      #
-      # For example, say I want to access the directory at /example/path/to/insurance
-      # on my local machine through the container. If I am in the container's shell,
-      # I can cd to /root/insurance and the contents will be available.
-      #
-      # Note that there is no copying. The directory in the container IS the 
-      # directory on your local machine. The path might be different however.
+      # Jupyter notebook password and config files
       - ~/.jupyter:/root/.jupyter
+      # Insurance venv
       - ~/.virtualenvs/repos/insurance:/root/insurance-workspace
+      # Insurance and marvin codebases
       - ~/insurance/:/root/insurance
+      # SSH agent to access VPN
+      - $SSH_AUTH_SOCK:/ssh-agent
+      - ~/.ssh:/root/.ssh
+      # Git permissions
+      - ~/.gitconfig:/root/.gitconfig
     # Allows for interactive sessions
     tty: true #
