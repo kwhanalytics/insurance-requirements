@@ -7,8 +7,6 @@ services:
     # NAMESPACE/REPO_NAME:TAG
     # Change this line if you want to change the image used for your container.
     image: kwhadocker/insurance-requirements:latest
-    environment:
-       - "MYUSER=${USER}"
     ports:
       # Jupyter default port
       - "8888:8888"
