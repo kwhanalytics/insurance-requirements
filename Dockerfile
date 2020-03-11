@@ -4,9 +4,11 @@ FROM ubuntu:18.04
 # To avoid user being prompted for region during tzone installation in next command. Session hangs otherwise.
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Set working directory to root
-# Moved this up so I could add mkdir into the RUN statement below
-WORKDIR /root/
+RUN useradd -ms /bin/bash $MYUSER
+
+# Getting user
+USER $MYUSER
+WORKDIR /home/$MYUSER
 
 # Install Ubuntu packages
 # Install GEOS packages needed for basemap
