@@ -1,7 +1,7 @@
 version: '3'
 services:
   insurance_env:
-    network_mode: host
+    #network_mode: host
     # The next line defines the image that will be used to create the container
     # It refers to an image that is available on Docker Hub and uses the form:
     # NAMESPACE/REPO_NAME:TAG
@@ -20,7 +20,6 @@ services:
       # Insurance and marvin codebases
       - ~/insurance/:/root/insurance
       # SSH agent to access VPN
-      - $SSH_AUTH_SOCK:/ssh-agent
       - ~/.ssh:/root/.ssh
       # Git permissions
       - ~/.gitconfig:/root/.gitconfig
