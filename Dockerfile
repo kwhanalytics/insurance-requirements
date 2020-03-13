@@ -7,6 +7,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Move to root
 WORKDIR /root/
 
+RUN apt-get -y update; apt-get -y install gnupg2 wget ca-certificates rpl pwgen
+
+
 # Install Ubuntu packages
 # Install GEOS packages needed for basemap
 # This layer costs 487MB in total
