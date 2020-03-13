@@ -12,24 +12,27 @@ WORKDIR /root/
 # This layer costs 487MB in total
 # Combined apt-get update install lines and added one more cleaning function
 RUN apt-get update && apt-get install -y \
-	strace \
-	build-essential \
-	lsof \
-	vim \
-	curl \
-	git \
-	mc \
-	sysstat \
-	iotop \
-	dstat \
-	iptraf \
-	screen \
-	tmux \
-	zsh \
-	xfsprogs \
-	libffi-dev \
-	python-dev python-tk python-pip \
-	libgeos-c1v5 libgeos-dev \
+	    strace \
+	    build-essential \
+	    lsof \
+	    vim \
+	    curl \
+	    git \
+	    mc \
+	    sysstat \
+	    iotop \
+	    dstat \
+	    iptraf \
+	    screen \
+	    tmux \
+	    zsh \
+	    xfsprogs \
+	    libffi-dev \
+	    python-dev \
+        python-tk \
+        python-pip \
+        libgeos-c1v5 \
+        libgeos-dev && \
     apt-get autoremove -y && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* && \
