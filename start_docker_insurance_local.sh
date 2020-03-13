@@ -2,9 +2,14 @@
 docker rm ins_develop
 
 NETWORKFLAG=$(grep "network_mode: host" ./docker-compose.yml |sed -e 's/[[:space:]]*//' |  head -c 1)
+JUPYTERPEMFLAG=$(grep "\- /etc/jupyter-kwha-cert:/etc/jupyter-kwha-cert" ./docker-compose.yml |sed -e 's/[[:space:]]*//' |  head -c 1)
 
 if [ "$NETWORKFLAG" != "#" ]; then
     sed -i '' 's/network_mode/#&/' ./docker-compose.yml
+fi
+
+if [ "$JUPYTERPEMFLAG" != "#" ]; then
+    sed -i '' 's/\- \/etc\/jupyter-kwha-cert/#&/' ./docker-compose.yml
 fi
 
 if [ "$1" == "--start-jupyter" ]; then
