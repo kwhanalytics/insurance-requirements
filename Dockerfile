@@ -7,10 +7,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Move to root
 WORKDIR /root/
 
-# Get Postgres 11
-RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" > /etc/apt/sources.list.d/pgdg.list' && \
-	wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-
 # Install Ubuntu packages
 # Install GEOS packages needed for basemap
 # This layer costs 487MB in total
@@ -34,12 +30,18 @@ RUN apt-get update && apt-get install -y \
 	libffi-dev \
 	python-dev python-tk python-pip \
 	libgeos-c1v5 libgeos-dev \
-	postgresql-client-11 postgresql-common postgresql-11 postgresql-11-postgis-2.5 postgresql-11-pgrouting \
-	netcat libpq-dev && \
     apt-get autoremove -y && \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* && \
     mkdir -p buildreqs/requirements
+
+# Get Postgres 11
+RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+
+RUN apt-get update; apt-get install -y postgresql-client-11 postgresql-common postgresql-11 \
+    postgresql-11-postgis-2.5 postgresql-11-pgrouting netcat libpq-dev
+
 
 # Copy requirement files
 COPY requirements.txt buildreqs/
