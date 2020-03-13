@@ -1,7 +1,7 @@
 version: '3'
 services:
   insurance_env:
-    #network_mode: host
+    network_mode: host
     # The next line defines the image that will be used to create the container
     # It refers to an image that is available on Docker Hub and uses the form:
     # NAMESPACE/REPO_NAME:TAG
@@ -25,5 +25,7 @@ services:
       - ~/.ssh:/root/.ssh
       # Git permissions
       - ~/.gitconfig:/root/.gitconfig
+      # Jupyter pem keys for remote
+      - /etc/jupyter-kwha-cert:/etc/jupyter-kwha-cert
     # Allows for interactive sessions
     tty: true #
