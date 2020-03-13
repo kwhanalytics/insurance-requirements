@@ -41,14 +41,6 @@ RUN apt-get update && apt-get install -y \
 	rm -rf /var/lib/apt/lists/* && \
     mkdir -p buildreqs/requirements
 
-# Get Postgres 11
-RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-
-RUN apt-get update; apt-get install -y postgresql-client-11 postgresql-common postgresql-11 \
-    postgresql-11-postgis-2.5 postgresql-11-pgrouting netcat libpq-dev
-
-
 # Copy requirement files
 COPY requirements.txt buildreqs/
 COPY marvin-requirements.txt buildreqs/marvin-requirements.txt
