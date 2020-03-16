@@ -17,8 +17,8 @@ services:
     volumes:
       # Jupyter notebook password and config files
       - ~/.jupyter:/root/.jupyter
-      # Insurance venv
-      - ~/.virtualenvs/repos/insurance:/root/insurance-workspace
+      # Insurance workspace for input files
+      - ~/insurance-workspace:/root/insurance-workspace
       # Insurance and marvin codebases
       - ~/insurance/:/root/insurance
       # SSH agent to access VPN
