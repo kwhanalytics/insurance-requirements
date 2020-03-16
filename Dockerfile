@@ -1,14 +1,30 @@
-# reference: https://hub.docker.com/_/ubuntu/
+#--------- Generic stuff all our Dockerfiles should start with so we get caching ------------
 FROM ubuntu:18.04
 
-# To avoid user being prompted for region during tzone installation in next command. Session hangs otherwise.
-ENV DEBIAN_FRONTEND=noninteractive
+RUN  export DEBIAN_FRONTEND=noninteractive
+ENV  DEBIAN_FRONTEND noninteractive
+RUN  dpkg-divert --local --rename --add /sbin/initctl
+
+RUN apt-get -y update; apt-get -y install gnupg2 wget ca-certificates rpl pwgen
+
+RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+
+#-------------Application Specific Stuff ----------------------------------------------------
+
+# We add postgis as well to prevent build errors (that we dont see on local builds)
+# on docker hub e.g.
+# The following packages have unmet dependencies:
+RUN apt-get update; apt-get install -y postgresql-client-11 postgresql-common postgresql-11 \
+    postgresql-11-postgis-2.5 postgresql-11-pgrouting netcat libpq-dev
+
+# Open port 5432 so linked containers can see them
+EXPOSE 5432
 
 # Move to root
 WORKDIR /root/
 
 RUN apt-get -y update; apt-get -y install gnupg2 wget ca-certificates rpl pwgen
-
 
 # Install Ubuntu packages
 # Install GEOS packages needed for basemap
@@ -40,13 +56,6 @@ RUN apt-get update && apt-get install -y \
 	apt-get clean && \
 	rm -rf /var/lib/apt/lists/* && \
     mkdir -p buildreqs/requirements
-
-# Get Postgres 11
-RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-
-RUN apt-get update; apt-get install -y postgresql-client-11 postgresql-common postgresql-11 \
-    postgresql-11-postgis-2.5 postgresql-11-pgrouting netcat libpq-dev
 
 
 # Copy requirement files
