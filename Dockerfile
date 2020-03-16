@@ -57,7 +57,6 @@ RUN apt-get update && apt-get install -y \
 	rm -rf /var/lib/apt/lists/* && \
     mkdir -p buildreqs/requirements
 
-
 # Copy requirement files
 COPY requirements.txt buildreqs/
 COPY marvin-requirements.txt buildreqs/marvin-requirements.txt
