@@ -1,3 +1,20 @@
+# reference: https://hub.docker.com/_/postgres
+FROM postgres:11
+
+RUN apt-get update
+
+RUN apt-get install -y postgresql-client-11 
+
+RUN apt-get install -y postgresql-common postgresql-11
+
+RUN apt-get install -y postgresql-11-postgis-2.5 
+
+RUN apt-get install -y postgresql-11-pgrouting 
+
+RUN apt-get install -y netcat 
+
+RUN apt-get install -y libpq-dev
+
 # reference: https://hub.docker.com/_/ubuntu/
 FROM ubuntu:18.04
 
@@ -6,8 +23,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Move to root
 WORKDIR /root/
-
-RUN apt-get -y update; apt-get -y install gnupg2 wget ca-certificates rpl pwgen
 
 # Install Ubuntu packages
 # Install GEOS packages needed for basemap
