@@ -29,6 +29,8 @@ services:
       # Jupyter pem keys for remote
       - /etc/jupyter-kwha-cert:/etc/jupyter-kwha-cert
       # Postgres data directory for DB permanence
-      - ~/kwh_pgdata:/var/lib/postgresql/data
+      - kwha_pgdata:/var/lib/postgresql/data
     # Allows for interactive sessions
     tty: true #
+volumes:
+  kwha_pgdata:
