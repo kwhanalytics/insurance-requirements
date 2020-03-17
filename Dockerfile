@@ -1,25 +1,4 @@
-FROM ubuntu:18.04
-
-RUN  export DEBIAN_FRONTEND=noninteractive
-ENV  DEBIAN_FRONTEND noninteractive
-RUN  dpkg-divert --local --rename --add /sbin/initctl
-
-RUN apt-get -y update; apt-get -y install gnupg2 wget ca-certificates rpl pwgen
-
-RUN sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-
-RUN apt-get update
-
-RUN apt-get install -y postgresql-client-11 
-
-RUN apt-get install -y postgresql-common 
-
-RUN apt-get install -y postgresql-11
-RUN apt-get install -y postgresql-11-postgis-2.5 
-RUN apt-get install -y postgresql-11-pgrouting
-RUN apt-get install -y netcat 
-RUN apt-get install -y libpq-dev
+FROM kwhadocker/ubuntu18-postgres11:latest
 
 # Move to root
 WORKDIR /root/
