@@ -127,7 +127,6 @@ sh==1.12.14
 Shapely==1.6.4.post2
 simplegeneric==0.8.1
 singledispatch==3.4.0.3
-six==1.10.0
 smmap2==2.0.5
 SOAPpy==0.12.22
 SQLAlchemy==1.0.5
