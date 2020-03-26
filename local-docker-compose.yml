@@ -7,6 +7,7 @@ services:
       # I may have to pass in all the postgres env vars like user and pw here
       - POSTGRES_USER=root
       - POSTGRES_PASS=kwh
+      - PGDATA=/var/lib/postgresql/data
     ports:
       # Jupyter default port
       - "8888:8888"
@@ -26,8 +27,6 @@ services:
       # Git permissions
       - ~/.gitconfig:/root/.gitconfig
       # Postgres data directory for DB permanence
-      - kwha_pgdata:/var/lib/postgresql/data
+      - ~/kwha_pgdata:/var/lib/postgresql/data
     # Allows for interactive sessions
     tty: true #
-volumes:
-  kwha_pgdata:
