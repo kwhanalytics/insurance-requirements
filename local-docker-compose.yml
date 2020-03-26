@@ -25,6 +25,6 @@ services:
       # Git permissions
       - ~/.gitconfig:/root/.gitconfig
       # Postgres data directory for DB permanence
-      - ~/kwha_pgdata:/var/lib/postgresql/data
+      - ~/kwha_pgdata:/var/lib/postgresql/11/main
     # Allows for interactive sessions
     tty: true #
