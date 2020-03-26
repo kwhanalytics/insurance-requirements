@@ -4,10 +4,8 @@ services:
     image: kwhadocker/insurance-requirements:latest
     environment:
       - USER
-      # I may have to pass in all the postgres env vars like user and pw here
       - POSTGRES_USER=root
       - POSTGRES_PASS=kwh
-      - PGDATA=/var/lib/postgresql/data
     ports:
       # Jupyter default port
       - "8888:8888"
