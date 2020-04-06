@@ -25,6 +25,7 @@ RUN apt-get update && apt-get install -y \
 	    xfsprogs \
 	    libffi-dev \
 	    python-dev \
+        chromium-chromedriver \
         python-tk \
         python-pip \
         libgeos-c1v5 \
