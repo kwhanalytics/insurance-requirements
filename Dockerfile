@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
 	    screen \
 	    tmux \
 	    zsh \
+            open \
 	    xfsprogs \
 	    libffi-dev \
 	    python-dev \
