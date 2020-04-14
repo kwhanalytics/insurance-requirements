@@ -3,8 +3,6 @@ services:
   insurance_env:
     # default
     image: kwhadocker/insurance-requirements:latest
-    # to test
-    # image: insurance-requirements-test
     environment:
       - USER
       - POSTGRES_USER=root
