@@ -20,7 +20,7 @@ boto==2.46.1
 boto3==1.7.17
 botocore==1.10.84
 cairocffi==0.9.0
-CairoSVG==1.0.22
+CairoSVG==2.5.1
 certifi==2019.3.9
 cffi==1.10.0
 configparser==3.7.4
