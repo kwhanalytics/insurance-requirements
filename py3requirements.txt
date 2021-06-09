@@ -1,4 +1,4 @@
-pip==9.0.1
+pip==19.2
 
 # Explicitly install Numpy before installing requirements.txt; this is
 # a workaround to a bug - without it, installing Pandas gives this error:
