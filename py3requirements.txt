@@ -85,7 +85,7 @@ pdfminer.six==20191110
 pdfrw==0.4
 pexpect==4.7.0
 pickleshare==0.7.5
-Pillow==6.0.0
+Pillow==8.3.2
 pipreqs==0.4.9
 progressbar==2.5
 prometheus-client==0.6.0
