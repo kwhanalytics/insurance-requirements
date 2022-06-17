@@ -5,7 +5,7 @@ pip==9.0.1
 # ImportError: C extension: umpy.core.multiarray failed to import not built.
 # If you want to import pandas from the source directory, you may need to run
 # 'python setup.py build_ext --inplace' to build the C extensions first.
-numpy==1.11.0
+numpy==1.21.0
 
 alembic==0.7.6
 appnope==0.1.0
