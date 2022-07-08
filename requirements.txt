@@ -132,7 +132,7 @@ smmap2==2.0.5
 SOAPpy==0.12.22
 SQLAlchemy==1.0.5
 statsmodels==0.8.0
-suds==0.4
+suds==1.0.0
 terminado==0.8.2
 testpath==0.4.2
 tinycss2==0.6.1
