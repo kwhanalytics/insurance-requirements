@@ -21,7 +21,7 @@ boto3==1.7.17
 botocore==1.10.84
 cairocffi==0.9.0
 CairoSVG==1.0.22
-certifi==2019.3.9
+certifi==2022.12.7
 cffi==1.10.0
 configparser==3.7.4
 coverage==4.4.1
